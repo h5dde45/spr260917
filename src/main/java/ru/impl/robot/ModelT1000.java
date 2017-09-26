@@ -1,27 +1,23 @@
 package ru.impl.robot;
 
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 import ru.interfaces.Hand;
 import ru.interfaces.Head;
 import ru.interfaces.Leg;
-import ru.interfaces.Robot;
 
-public class ModelT1000 implements Robot{
-    private Head head;
-    private Hand hand;
-    private Leg leg;
+public class ModelT1000 extends BaseModel implements InitializingBean,DisposableBean{
+
 
     private String color;
     private int year;
     private boolean soundEnable;
 
     public ModelT1000() {
-
     }
 
     public ModelT1000(Head head, Hand hand, Leg leg) {
-        this.head = head;
-        this.hand = hand;
-        this.leg = leg;
+        super(head,hand,leg);
     }
 
     public ModelT1000(String color, int year, boolean soundEnable) {
@@ -31,37 +27,10 @@ public class ModelT1000 implements Robot{
     }
 
     public ModelT1000(Head head, Hand hand, Leg leg, String color, int year, boolean soundEnable) {
-        this.head = head;
-        this.hand = hand;
-        this.leg = leg;
+        super(head,hand,leg);
         this.color = color;
         this.year = year;
         this.soundEnable = soundEnable;
-    }
-
-    public Head getHead() {
-
-        return head;
-    }
-
-    public void setHead(Head head) {
-        this.head = head;
-    }
-
-    public Hand getHand() {
-        return hand;
-    }
-
-    public void setHand(Hand hand) {
-        this.hand = hand;
-    }
-
-    public Leg getLeg() {
-        return leg;
-    }
-
-    public void setLeg(Leg leg) {
-        this.leg = leg;
     }
 
     public String getColor() {
@@ -89,9 +58,9 @@ public class ModelT1000 implements Robot{
     }
 
     public void action() {
-        head.calc();
-        hand.catchSomeThing();
-        leg.go();
+        getHead().calc();
+        getHand().catchSomeThing();
+        getLeg().go();
         System.out.println(color);
         System.out.println(year);
         System.out.println(soundEnable);
@@ -99,5 +68,23 @@ public class ModelT1000 implements Robot{
 
     public void sleep() {
         System.out.println("T1000 sleep");
+    }
+
+    public void initObject() {
+        System.out.println("init");
+    }
+
+    public void destroyObject() {
+        System.out.println("destroy");
+    }
+
+    @Override
+    public void destroy() throws Exception {
+        System.out.println(this+" - destroy()");
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println(this+" - init()");
     }
 }

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+       default-lazy-init="true"
+>
+    <context:annotation-config></context:annotation-config>
+
+    <import resource="t1000_context.xml"/>
+
+    <bean class="ru.main.MyBeanPostProcessor"/>
+    <bean id="t1000Conveyor" class="ru.impl.conveyor.T1000Conveyor">
+        <lookup-method name="createRobot" bean="t1000"/>
+    </bean>
+
+    <bean id="t1000Pool" class="ru.impl.pool.T1000Pool">
+        <constructor-arg name="robotMap">
+            <map>
+                <entry key="2006" value-ref="t1000"/>
+                <entry key="2007" value-ref="t1000"/>
+                <entry key="2006">
+                    <bean class="ru.impl.robot.ModelT1000" parent="baseModel">
+                        <constructor-arg value="gold"/>
+                        <constructor-arg value="2343"/>
+                        <constructor-arg value="false"/>
+                        <property name="head" ref="sonyHead"/>
+                        <property name="hand" ref="sonyHand"/>
+                        <property name="leg" ref="sonyLeg"/>
+                    </bean>
+                </entry>
+            </map>
+        </constructor-arg>
+    </bean>
+
+</beans>
