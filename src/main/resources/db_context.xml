@@ -5,5 +5,5 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd"
        default-lazy-init="true">
 
-    <bean id="dbBean" class="ru.impl.Database"/>
+    <bean id="dbBean" class="ru.ioc.impl.Database"/>
 </beans>

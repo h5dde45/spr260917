@@ -7,8 +7,8 @@
        default-autowire-candidates="false"
 >
 
-    <bean id="sonyHead" class="ru.impl.sony.SonyHead"/>
-    <bean id="sonyHand" class="ru.impl.sony.SonyHand"/>
-    <bean id="sonyLeg" class="ru.impl.sony.SonyLeg"/>
+    <bean id="sonyHead" class="ru.ioc.impl.sony.SonyHead"/>
+    <bean id="sonyHand" class="ru.ioc.impl.sony.SonyHand"/>
+    <bean id="sonyLeg" class="ru.ioc.impl.sony.SonyLeg"/>
 
 </beans>

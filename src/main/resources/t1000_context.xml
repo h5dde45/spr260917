@@ -11,9 +11,9 @@
     <import resource="s_context.xml"/>
     <import resource="db_context.xml"/>
 
-    <bean id="replaced" class="ru.impl.robot.ActionReplacer"/>
+    <bean id="replaced" class="ru.ioc.impl.robot.ActionReplacer"/>
 
-    <bean id="t1000" class="ru.impl.robot.ModelT1000"
+    <bean id="t1000" class="ru.ioc.impl.robot.ModelT1000"
           parent="baseModel" scope="prototype"
           autowire="byType">
         <!--<constructor-arg value="red"/>-->

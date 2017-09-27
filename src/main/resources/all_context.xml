@@ -10,18 +10,18 @@
 
     <import resource="t1000_context.xml"/>
 
-    <bean class="ru.main.MyBeanPostProcessor"/>
-    <bean id="t1000Conveyor" class="ru.impl.conveyor.T1000Conveyor">
+    <bean class="ru.ioc.main.MyBeanPostProcessor"/>
+    <bean id="t1000Conveyor" class="ru.ioc.impl.conveyor.T1000Conveyor">
         <lookup-method name="createRobot" bean="t1000"/>
     </bean>
 
-    <bean id="t1000Pool" class="ru.impl.pool.T1000Pool">
+    <bean id="t1000Pool" class="ru.ioc.impl.pool.T1000Pool">
         <constructor-arg name="robotMap">
             <map>
                 <entry key="2006" value-ref="t1000"/>
                 <entry key="2007" value-ref="t1000"/>
                 <entry key="2006">
-                    <bean class="ru.impl.robot.ModelT1000" parent="baseModel">
+                    <bean class="ru.ioc.impl.robot.ModelT1000" parent="baseModel">
                         <constructor-arg value="gold"/>
                         <constructor-arg value="2343"/>
                         <constructor-arg value="false"/>

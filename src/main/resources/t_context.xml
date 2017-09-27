@@ -6,7 +6,7 @@
        default-lazy-init="true"
 >
 
-    <bean id="toshibaHead" class="ru.impl.toshiba.ToshibaHead"/>
-    <bean id="toshibaHand" class="ru.impl.toshiba.ToshibaHand"/>
-    <bean id="toshibaLeg" class="ru.impl.toshiba.ToshibaLeg"/>
+    <bean id="toshibaHead" class="ru.ioc.impl.toshiba.ToshibaHead"/>
+    <bean id="toshibaHand" class="ru.ioc.impl.toshiba.ToshibaHand"/>
+    <bean id="toshibaLeg" class="ru.ioc.impl.toshiba.ToshibaLeg"/>
 </beans>
