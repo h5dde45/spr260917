@@ -1,13 +1,25 @@
 package ru.dao.interfaces;
 
+import ru.dao.objects.Author;
 import ru.dao.objects.MP3;
 
 import java.util.List;
+import java.util.Map;
 
 public interface MP3Dao {
-    void insert(MP3 mp3);
 
-    void insert(List<MP3> mp3List);
+    int insertMP3(MP3 mp3);
+
+//    @Transactional
+    int insertAuthor(Author author);
+
+    int insertSimple(MP3 mp3);
+
+    int insertBatchList(List<MP3> mp3List);
+
+    int insertList(List<MP3> mp3List);
+
+    Map<String,Integer> getStat();
 
     void delete(int id);
 
